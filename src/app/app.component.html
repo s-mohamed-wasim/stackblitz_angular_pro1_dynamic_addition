@@ -1,0 +1,26 @@
+<div class="container mt-3">
+  <h2 class="text-light bg-primary text-center" style="padding:10px">Wasim App</h2>
+  <div class="mt-3">
+      <div class="text-center">
+        <p class="mx-3">Enter the number of fields required</p> 
+        <input type="number" style="text-align:center" #num><br>
+        <button class="btn btn-success btn-sm mt-3" style="width:90px" 
+        (click)="addFields(num)">Add Fields</button>
+      </div>
+  </div>
+  <div class="mt-5" *ngIf="numbers.length > 0">
+    <section *ngFor="let number of numbers;let i = index" class="text-center">
+      <div class="form-group mt-3">
+        <label class="mx-3">Enter the {{i + 1}} number</label>
+        <input type="number" [(ngModel)]="number.value" style="text-align:center"
+        name="value_{{i}}">
+      </div>
+    </section>
+    <div class="mt-5 text-center">
+      <button class="btn btn-danger btn-sm" (click)="calculateSum()">Calculate Sum</button>
+    </div>
+    <div class="mt-5 text-center">
+      <h2>The sum: <button class="btn btn-secondary">{{result}}</button></h2>
+    </div>
+  </div>
+</div>
